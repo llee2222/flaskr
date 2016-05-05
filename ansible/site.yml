@@ -3,5 +3,13 @@
   gather_facts: no
   become: true
   tasks:
-  - name:  do nothing!
-    command: /bin/true 
+    - name: copy file 
+      file:
+        src: "flaskr/init.d/flaskr"
+        dest: "/etc/rc.d/init.d"
+      dnf:
+        name: python-flash
+        state: absent
+      git:
+        repo: "https://github.com/llee2222/flaskr.git"
+        dest: "/home/vagrant/srv/flaskr" 
