@@ -7,9 +7,11 @@
       file:
         src: "flaskr/init.d/flaskr"
         dest: "/etc/rc.d/init.d"
+    - name: install python-flash
       dnf:
         name: python-flash
         state: absent
+    - name: git check out 
       git:
         repo: "https://github.com/llee2222/flaskr.git"
         dest: "/home/vagrant/srv/flaskr" 
