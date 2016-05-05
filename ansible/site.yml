@@ -4,9 +4,9 @@
   become: true
   tasks:
     - name: copy file 
-      file:
-        src: "flaskr/init.d/flaskr"
-        dest: "/etc/rc.d/init.d"
+      copy:
+        src="/home/vagrant/srv/flaskr/init.d/flaskr"
+        dest="/etc/rc.d/init.d/"
     - name: install python-flash
       dnf:
         name: python-flash
